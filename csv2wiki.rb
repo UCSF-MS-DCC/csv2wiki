@@ -8,8 +8,6 @@ outfilename = ARGV[1]
 data = File.read(csvfilename)
 csv = CSV.parse(data, :headers => true)
 
-puts csv.headers.length
-
 File.open(outfilename,"a+") do |out|
    out.write("{| class='wikitable'\n")
    wikitablehead = ""
