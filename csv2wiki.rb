@@ -15,7 +15,8 @@ File.open(outfilename,"a+") do |out|
    csv.headers.each do |col_head|
       head_delimiter = firsthead == true ? "!" : "!!"
       firsthead = false
-      wikitablehead += "#{head_delimiter}#{col_head}"
+      headval = (["",nil].include? col_head) ? " " : col_head
+      wikitablehead += "#{head_delimiter}#{headval}"
    end
    out.write("#{wikitablehead}\n")
    csv.each do |row|
